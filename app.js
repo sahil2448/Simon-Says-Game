@@ -1,15 +1,15 @@
 // ----------------------------------SIMON SAYS GAME-----------------------------------------------
 
-
 // Variables to manage game state
 let gameSeq = [];
 let userSeq = [];
 let btns = ["yellow", "red", "purple", "green"];
 let started = false;
 let level = 0;
-
+let scores = [0];
 // DOM element for displaying the level
 let h2 = document.querySelector("h2");
+let maxScore = document.querySelector("#maxScore");
 
 // Event listener to start the game
 document.addEventListener("keypress", function () {
@@ -77,6 +77,8 @@ for (let btn of btnElements) {
 }
 
 // Function to check the user's answer
+let max = 0;
+
 function checkAns(idx) {
   if (gameSeq[idx] === userSeq[idx]) {
     console.log("Both are equal");
@@ -89,14 +91,17 @@ function checkAns(idx) {
     // Game over scenario
     h2.innerHTML = `Game Over!<br>Your score was ${level}<br>Press any key to start again`;
     document.querySelector("body").style.backgroundColor = "red";
-
-    // Flash the background briefly
+    scores.push(level);
+    updateMax();
     setTimeout(() => {
       document.querySelector("body").style.backgroundColor = "white";
     }, 150);
-
     // Reset the game
     reset();
+  }
+  function updateMax() {
+    let max = Math.max(...scores);
+    maxScore.innerText = `Your max Score till now is: ${max}`;
   }
 }
 
