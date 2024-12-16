@@ -1,6 +1,6 @@
 # Simon-Says-Game 🎮  
 Simon Says Game challenges players to remember and replicate a sequence of colors and sounds, which progressively becomes more complex as they advance. It provides a fun and interactive way to test and improve memory skills. </br>
-live at: Live at: https://sahil2448.github.io/Simon-Says-Game/
+Live at: https://sahil2448.github.io/Simon-Says-Game/
  
 ---
 
